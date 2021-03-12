@@ -9,9 +9,9 @@
  */
 function calculate(
     array $numbers,
-    int $begin,
-    int $end,
-    callable $func) : int
+    $begin,
+    $end,
+    callable $func)
 {
     $result = 0;
 
@@ -28,10 +28,17 @@ fclose($file);
 $numberCount = count($fileData);
     
 // Расчет
-$s1 = calculate($fileData, 1, $numberCount, function(int $n) { return $n; });
-$s2 = calculate($fileData, 2, $numberCount - 1, function(int $n) { return $n*$n; });
-$s3 = calculate($fileData, 1, $numberCount - 2, function(int $n) { return sqrt($n); });
-$s4 = calculate($fileData, 1, $numberCount, function(int $n) { return $n ** (2/3); });
+$s1_func = function($n) { return $n; };
+$s1 = calculate($fileData, 1, $numberCount, $s1_func);
+
+$s2_func = function($n) { return $n*$n; };
+$s2 = calculate($fileData, 2, $numberCount - 1, $s2_func);
+
+$s3_func = function($n) { return sqrt($n); };
+$s3 = calculate($fileData, 1, $numberCount - 2, $s3_func);
+
+$s4_func = function($n) { return sqrt($n); };
+$s4 = calculate($fileData, 1, $numberCount, $s4_func);
 
 // Вывод результата
 echo "s1: $s1 <br>";
