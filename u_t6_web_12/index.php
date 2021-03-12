@@ -48,10 +48,6 @@ function getFromCSV(
                 array_push($fullData, $result);
 
             } else {
-                // <= because of one SPACE instead of TAB
-                /*for ($i = 0; $i <= count($data); $i++)
-                    $fullData[$currentDateID][1][$i] = array();*/
-
                 $columnsReady = true;
             }
 
@@ -63,9 +59,6 @@ function getFromCSV(
                 continue;
             } else if ($curTableHeader[1] == "Дата") {
                 $currentDate = $curTableHeader[3];
-                //$currentDateID++;
-                //$fullData[$currentDateID][0] = $curTableHeader[3];
-                //$fullData[$currentDateID][1] = array();
 
                 $gotTableHeader = true;
                 $columnsReady = false;
@@ -119,8 +112,8 @@ function getTableOf(
     }
 
     return "
-    <p>$discipline:</p>
-    <table border='1'>
+    <p style='width:50%; text-align: center;'>$discipline:</p>
+    <table border='1' style='width:50%'>
         <tr>
             <th>ФИО студента</th>
             <th>Оценка</th>

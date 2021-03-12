@@ -2,7 +2,7 @@
 
 class ExamResult
 {
-    private $studentName = "SN";
+    private $studentName = "";
     private $discipline = "";
     private $grade = "g.";
     private $date = "01.01.1970";
@@ -35,7 +35,13 @@ class ExamResult
      */
     public function setStudentName($name)
     {
-        $this->studentName = ucwords($name, ' '); // Capitalize Every Word
+        $words = explode(' ', $name);
+        foreach ($words as $word)
+            $this->studentName .= mb_strtoupper(
+                mb_substr($word, 0, 1), "utf-8")
+                . mb_substr($word, 1) . ' ';
+
+        $this->studentName = mb_substr($this->studentName, 0, -1);
     }
 
     /**
