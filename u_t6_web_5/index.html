@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+<head>
+    <meta charset="UTF-8">
+    <title>u_t6_web_5</title>
+</head>
+<body>
+    <h3>Подбор оттенков цвета</h3>
+
+    <p>В первое поле нужно ввести шестнадцатиричный код цвета.</p>
+    <p>Например красный цвет имеет код FF0000.</p>
+    <p>Из списка во втором поле выбирается для сравнения</p>
+    <p>один из основных цветов (красный, зелёный, синий)</p>
+
+    <form action="calc.php" method="post">
+
+        <label for="colorCode">Введите код цвета ..</label>
+        <input type="text" id="colorCode" name="colorCode">
+        <p>
+
+        <label for="colorList">Выберите цвет ........</label>
+        <select id="colorList" name="colorList">
+            <option value="red">Красный</option>
+            <option value="green">Зеленый</option>
+            <option value="blue">Синий</option>
+        </select>
+        <p>
+
+        <input type="submit" value="Выполнить">
+
+    </form>
+
+</body>
+</html>
