@@ -8,9 +8,9 @@
  * @return string table cell
  */
 function CreateColorCell(
-    int $red,
-    int $green,
-    int $blue) : string
+    $red,
+    $green,
+    $blue)
 {
     return "<td style='background-color: rgb($red, $green, $blue);'>$red $green $blue</td>";
 }
@@ -19,7 +19,7 @@ function CreateColorCell(
  * Prepare array of color values
  * @return int[] color values
  */
-function GetColorCodes() : array
+function GetColorCodes()
 {
     $result = [];
 
