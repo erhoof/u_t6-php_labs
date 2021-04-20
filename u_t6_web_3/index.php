@@ -49,6 +49,7 @@
         </tr>
         <?php
             $before = $_POST["before"];
+            echo $format;
             $after = $_POST["after"];
 
             if ($before == null || (int)$before > 10)
@@ -63,7 +64,7 @@
                 $rad = deg2rad($i);
                 $sin = sin($rad);
                 $radFormat = sprintf($format, $rad);
-                $sinFormat = sprintf("%5.3f", $sin);
+                $sinFormat = sprintf($format, $sin);
 
                 echo "  <tr>
                             <th align='right'>$i</th>
