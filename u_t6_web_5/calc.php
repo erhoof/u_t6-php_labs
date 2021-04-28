@@ -12,9 +12,22 @@
         $colorList = $_POST["colorList"];
 
         $colors = array (
+            "aqua" =>    "Морская волны",
+            "black" =>    "Черный",
+            "lightblue" =>    "Голубой",
+            "fuchsia" =>    "Фуксия",
+            "gray" =>    "Серый",
+            "green" =>    "Зеленый",
+            "lime" =>    "Светло-зеленый",
+            "maroon" =>    "Темно-бордовый",
+            "navy" =>    "Темно-синий",
+            "olive" =>    "Оливковый",
+            "purple" =>    "Фиолетовый",
             "red" =>    "Красный",
-            "green" =>  "Зеленый",
-            "blue" =>   "Синий"
+            "silver" =>  "Серый",
+            "teal" =>   "Серо-зеленый",
+            "white" =>    "Белый",
+            "yellow" =>    "Желтый"
         );
 
         echo "<h1 style='color: #$colorCode'> $colorCode </h1>";
