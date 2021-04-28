@@ -49,7 +49,6 @@
         </tr>
         <?php
             $before = $_POST["before"];
-            echo $format;
             $after = $_POST["after"];
 
             if ($before == null || (int)$before > 10)
