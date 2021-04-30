@@ -6,9 +6,63 @@
 </head>
 <body>
     <form action="table.php" method="post">
-        Введите ФИО....... <input type="string" name="name"><p>
-        Введите город...... <input type="string" name="city"><p>
-        Введите телефон. <input type="string" name="number"><p>
+
+        <!-- ФИО -->
+        <label for="name">ФИО: </label>
+        <input type="text" name="name">
+        <p>
+
+        <label for="chooseList_ФИО">Поиск по</label>
+        <select name="chooseList_ФИО">
+            <option value="word">Всему слову</option>
+            <option value="begin">Началу</option>
+            <option value="end">Концу</option>
+            <option value="mid">Середине</option>
+        </select>
+        <p>
+
+        <!-- Город -->
+        <label for="city">Город: </label>
+        <input type="text" name="city">
+        <p>
+
+        <label for="chooseList_Город">Поиск по</label>
+        <select name="chooseList_Город">
+            <option value="word">Всему слову</option>
+            <option value="begin">Началу</option>
+            <option value="end">Концу</option>
+            <option value="mid">Середине</option>
+        </select>
+        <p>
+
+        <!-- Телефон -->
+        <label for="number">Телефон: </label>
+        <input type="text" name="number">
+        <p>
+
+        <label for="chooseList_телефон">Поиск по</label>
+        <select name="chooseList_телефон">
+            <option value="word">Всему слову</option>
+            <option value="begin">Началу</option>
+            <option value="end">Концу</option>
+            <option value="mid">Середине</option>
+        </select>
+        <p>
+
+        <!-- Должность -->
+        <label for="position">Должность: </label>
+        <input type="text" name="position">
+        <p>
+
+        <label for="chooseList_Должность">Поиск по</label>
+        <select name="chooseList_Должность">
+            <option value="word">Всему слову</option>
+            <option value="begin">Началу</option>
+            <option value="end">Концу</option>
+            <option value="mid">Середине</option>
+        </select>
+        <p>
+
         <input type="submit" value="Выполнить">
     </form>
 </body>

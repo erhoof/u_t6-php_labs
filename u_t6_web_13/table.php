@@ -1,6 +1,6 @@
 <?php
 /**
- * Fetch table from SQL
+ * Fetch table from SQL - Получить данные из SQL таблицы (legacy)
  * @param array dict    Dictionray with req params [param=value]
  *
  * @return array    Array of table rows
@@ -20,7 +20,7 @@ function fetchData (array $dict)
     mysql_query("set NAMES utf8");
 
     // Form query
-    $query = "SELECT * FROM main_table\n";
+    $query = "SELECT * FROM tbl_name\n";
 
     if (!empty($dict)) {
         $query .= 'where ';
@@ -28,11 +28,14 @@ function fetchData (array $dict)
         foreach ($dict as $key => $value) {
             if (empty($value))
                 continue;
+            echo $key . '<p>';
 
-            $query .= "$key = '$value' AND \n";
+            $likeStr = processLike($key, $value);
+            $query .= "$key" . $likeStr . " AND \n";
         }
 
         $query = mb_substr($query, 0, -5);
+        echo $query;
     }
 
     // Query result
@@ -47,8 +50,26 @@ function fetchData (array $dict)
     return $finalized;
 }
 
+function processLike(
+    $key,
+    $value)
+{
+    $value = mysql_real_escape_string($value);
+
+    switch ($_POST[('chooseList_' . $key)]) {
+        case 'word':
+            return " = '$value'";
+        case 'begin':
+            return " LIKE '$value%'";
+        case 'end':
+            return " LIKE '%$value'";
+        case 'mid':
+            return " LIKE '%$value%'"; 
+    }
+}
+
 /**
- * Form HTML row
+ * Form HTML row - Сформировать строку HTML
  * @param data array of cells
  *
  * @return string   html table row
@@ -66,18 +87,19 @@ $params = array();
 $params["ФИО"]    = $_POST["name"];
 $params["Город"]    = $_POST["city"];
 $params["телефон"]  = $_POST["number"];
+$params["Должность"]  = $_POST["position"];
 
 $data = fetchData($params);
 ?>
 
 <table border="1">
-    <th>
+    <tr>
         <td>ФИО</td>
         <td>Должность</td>
         <td>телефон</td>
         <td>Город</td>
         <td>Дом_улица_кв</td>
-    </th>
+    </tr>
     <?php
         foreach ($data as $row)
             echo showAsHTML($row);
