@@ -121,7 +121,7 @@ function getFromCSV(
 
     fclose($handle);
 
-    echo "<p> Записей: " . count($fullData);
+    echo "<p> Записей: " . count($fullData) . '</p>';
 
     return $fullData;
 }
