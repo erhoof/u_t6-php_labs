@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+<head>
+    <meta charset="UTF-8">
+    <title>u_t6_web-10</title>
+</head>
+<body>
+    <h3>Введите числа</h3>
+    <form action="calc.php" method="post" enctype="multipart/form-data">
+        CSV формат (запятая как разделитель)<input type="text" name="line"><p>
+        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+        Файл в CSV формате <input type="file" name="file"><p>
+        Использовать Log реализацию: <input type="checkbox" name="log"><p>
+        <input type="submit" value="Выполнить">
+    </form>
+</body>
+</html>
